@@ -1,13 +1,160 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* GENERAL SETTINGS */
+
+@layer base {
+  html {
+    font-family: 'Ubuntu', sans-serif;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  @apply m-0 bg-whiteDefault;
+}
+
+h1 {
+  @apply text-xxl;
+}
+
+h2 {
+  @apply text-l;
+}
+
+h3 {
+  @apply text-s
+}
+
+p {
+  @apply text-m;
+}
+
+a {
+  @apply text-s tab:text-l text-blueDefault;
+}
+
+h5 {
+  @apply text-xs;
+}
+
+@keyframes underline {
+  from {
+    background-size: 100% 100%;
+    background-position: bottom right;
+  }
+  50% {
+    background-size: 0 100%;
+    background-position: bottom right;
+  }
+  50.01% {
+    background-position: bottom left;
+  }
+  100% {
+    background-size: 100% 100%;
+    background-position: bottom left;
+  }
+}
+
+/* HEADER */
+
+#header {
+  @apply shadow-md h-12 tab:h-20 pc:h-24 flex flex-row;
+  animation: fromTop 1s cubic-bezier(.11,.9,.29,.93);
+}
+
+#links {
+  @apply h-[100%] w-5/6 pc:w-11/12 flex justify-center items-center space-x-8 tab:space-x-20 pc:space-x-72;
+}
+
+#header a:hover {
+  @apply cursor-pointer bg-gradient-to-tr;
+  background: linear-gradient(to top, rgba(43, 107, 255, 0.5) 0%, rgba(43, 107, 255, 0.5) 10%, transparent 10.01%) no-repeat right bottom / 0 100%;
+  animation: underline 700ms both;
+}
+
+#darkModeDiv {
+  @apply h-[100%] w-1/6 pc:w-1/12 flex justify-end;
+}
+
+#darkModeDiv img {
+  @apply h-[100%] transition-all;
+  transition-duration: 500ms;
+}
+
+#darkModeDiv img:hover {
+  transition: all 500ms;
+  filter: invert(100%);
+  -webkit-filter: invert(100%);
+}
+
+@keyframes fromTop {
+  from {
+    height: 0;
+  }
+  100% {
+    @apply h-12;
+  }
+}
+
+@media (min-width: 640px) {
+  @keyframes fromTop {
+    from {
+      height: 0;
+    }
+    100% {
+      @apply h-20;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  @keyframes fromTop {
+    from {
+      height: 0;
+    }
+    100% {
+      @apply h-24;
+    }
+  }
+}
+
+/* FOOTER */
+
+#footer {
+  @apply flex flex-col space-y-4 p-5;
+}
+
+#footer hr {
+  @apply w-1/2 self-center;
+}
+
+#socialMedias {
+  @apply flex flex-col items-center space-y-5;
+}
+
+#socialMediaLinks {
+  @apply flex flex-row space-x-5;
+}
+
+.icon {
+  @apply h-12;
+  transition: all 700ms;
+}
+
+.icon:hover {
+  @apply h-16;
+  transition: all 700ms;
+}
+
+#infosFooter {
+  @apply flex flex-row space-x-10 justify-center items-center;
+}
+
+
+
+.divTest {
+  @apply h-96 w-52 border-x-4 border-s-orange-700;
 }
