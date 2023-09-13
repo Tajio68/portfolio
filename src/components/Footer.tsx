@@ -4,7 +4,7 @@ import linkedinIcon from "./../assets/img/linkedinIcon.png";
 const Footer: React.FunctionComponent = () => {
 
     return (
-        <div id="footer">
+        <div id="footer" className="selectionToBlue">
             <hr />
             <div id="socialMedias">
                 <h3>Me suivre</h3>

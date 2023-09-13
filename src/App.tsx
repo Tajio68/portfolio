@@ -11,7 +11,9 @@ const App: React.FunctionComponent<AppProps> = ({ children }) => {
   return ( 
     <div id='app'>
       <Header />
-      {children}
+      <div id='children'>
+        {children}
+      </div>
       <Footer />
     </div>
   );

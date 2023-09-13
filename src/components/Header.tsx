@@ -1,24 +1,41 @@
 import { useNavigate } from "react-router-dom";
 import darkModeImg from "./../assets/img/darkMode.png" ;
+import { useEffect, useState } from "react";
 
-interface HeaderProps {
-
-}
-
-const Header: React.FunctionComponent<HeaderProps> = () => {
+const Header: React.FunctionComponent = () => {
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+      const handleScroll = () => {
+        const element = document.getElementById("header");
+        if (element) {
+            if (window.scrollY > 50) {
+                element.classList.add('hiddenHeader');
+                element.classList.remove('showHeader');
+            } else if (window.scrollY === 0) {
+                element.classList.add('showHeader');
+                element.classList.remove('hiddenHeader');
+            }  
+        }   
+      }
+
+      window.addEventListener('scroll', handleScroll);
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      }
+    }, []);
 
     const darkModeTrigger = () => {
 
     } // A faire à la fin du Front End
 
     return (
-        <div id="header">
+        <div id="header" className="selectionToBlue">
             <div id="links">
                 <a onClick={() => navigate('/')}>Accueil</a>
                 <a onClick={() => navigate('/portfolio')}>Portfolio</a>
-                <a onClick={() => navigate('about')}>À propos</a>
+                <a onClick={() => navigate('/about')}>À propos</a>
             </div>
             <div id="darkModeDiv">
                 <img src={darkModeImg} onClick={() => darkModeTrigger()}></img>

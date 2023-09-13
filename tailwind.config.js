@@ -5,7 +5,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      
       fontSize: {
         xs: '12px',
         s: '20px',
@@ -16,9 +15,9 @@ module.exports = {
       },
       colors: {
         blueDefault: '#2B6BFF',
-        whiteDefault: 'FFFCF6',
-        darkBlue: '113078'
-      }
+        whiteDefault: '#FFFCF6',
+        darkBlue: '#113078'
+      },
     },
     screens: {
       tab: '640px',
