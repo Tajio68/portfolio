@@ -374,3 +374,74 @@ img {
     width: 100;
   }
 }
+
+/* PORTFOLIO */
+
+#portfolio {
+  @apply flex flex-col items-center;
+}
+
+/* REALISATION LIST */
+
+#realisationList {
+  @apply flex flex-col items-center w-[100%] tab:w-4/5 pc:flex-row pc:flex-wrap pc:w-4/5;
+}
+
+/* REALISATION CARD */
+
+.realisationCard {
+  @apply shadow-lg rounded-2xl m-[5%] w-11/12 tab:w-[100%] pc:w-2/5 ;
+}
+
+.realisationCard:hover{
+ @apply cursor-pointer;
+}
+
+.realisationCard .cardTitle {
+  @apply shadow-lg bg-blueDefault text-whiteDefault;
+  border-radius: 16px 16px 0 0;
+}
+
+.realisationCard .cardImage {
+  @apply h-64 items-center pb-2;
+}
+
+.cardImage img {
+  @apply h-[100%] self-center;
+}
+
+.realisationCard .cardDiscover {
+  @apply bg-blueDefault opacity-0;
+  border-radius: 0 0 16px 16px;
+  transition-duration: 300ms;
+}
+
+.cardDiscover h2 {
+  @apply mb-0 text-whiteDefault;
+}
+
+.showCardDiscover {
+  animation: showDiscover 0.4s forwards;
+}
+
+.hideCardDiscover {
+  animation: hideDiscover 0.4s forwards;
+}
+
+@keyframes showDiscover {
+  from {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes hideDiscover {
+  from {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0;
+  }
+}

@@ -1,6 +1,6 @@
 
 import Header from './components/Header';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect } from 'react';
 import Footer from './components/Footer';
 
 interface AppProps {
@@ -8,6 +8,7 @@ interface AppProps {
 }
  
 const App: React.FunctionComponent<AppProps> = ({ children }) => {
+
   return ( 
     <div id='app'>
       <Header />
