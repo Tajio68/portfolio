@@ -12,6 +12,7 @@
 @layer base {
   html {
     font-family: 'Ubuntu', sans-serif;
+    scroll-behavior: smooth
   }
 }
 
@@ -43,7 +44,10 @@ h5 {
   @apply text-xs;
 }
 
-h1, h2, p, button {
+h1,
+h2,
+p,
+button {
   @apply p-1 tab:p-4 pc:p-8
 }
 
@@ -59,10 +63,6 @@ button {
   @apply font-medium tab:font-bold pc:font-bold mb-3 mt-3;
 }
 
-hr {
-  @apply m-2
-}
-
 button.blueButton {
   @apply bg-blueDefault rounded-md text-whiteDefault text-m border-blueDefault border-x-4 border-y-4;
   transition-duration: 300ms;
@@ -70,8 +70,8 @@ button.blueButton {
 
 button.blueButton:hover {
   @apply text-blueDefault;
-  background: rgb(255,255,255);
-  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(43,107,255,0.20211834733893552) 100%);
+  background: rgb(255, 255, 255);
+  background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(43, 107, 255, 0.20211834733893552) 100%);
   transition-duration: 300ms;
 }
 
@@ -86,7 +86,7 @@ button.whiteButton:hover {
 }
 
 img {
-  @apply select-none
+  @apply select-none;
 }
 
 .selectionToBlue *::selection {
@@ -97,18 +97,35 @@ img {
   @apply bg-white text-blueDefault;
 }
 
+input,
+textarea {
+  @apply shadow-inner m-5 text-s max-h-96 bg-blueDefault rounded-lg p-2 text-whiteDefault placeholder-gray-100;
+}
+
+textarea {
+  @apply min-h-[30px] h-96;
+}
+
+input {
+  @apply border-blueDefault;
+  box-shadow: blue;
+}
+
 @keyframes underline {
   from {
     background-size: 100% 100%;
     background-position: bottom right;
   }
+
   50% {
     background-size: 0 100%;
     background-position: bottom right;
   }
+
   50.01% {
     background-position: bottom left;
   }
+
   100% {
     background-size: 100% 100%;
     background-position: bottom left;
@@ -118,8 +135,8 @@ img {
 /* HEADER */
 
 #header {
-  @apply shadow-md h-12 tab:h-20 pc:h-24 flex flex-row fixed w-[100%] bg-white z-50;;
-  animation: fromTop 1s cubic-bezier(.11,.9,.29,.93);
+  @apply shadow-md h-12 tab:h-20 pc:h-24 flex flex-row fixed w-[100%] bg-white z-30;
+  animation: fromTop 1s cubic-bezier(.11, .9, .29, .93);
 }
 
 #links {
@@ -142,6 +159,7 @@ img {
 }
 
 #darkModeDiv img:hover {
+  @apply cursor-pointer;
   transition: all 500ms;
   filter: invert(100%);
   -webkit-filter: invert(100%);
@@ -151,6 +169,7 @@ img {
   from {
     @apply h-0;
   }
+
   100% {
     @apply h-12;
   }
@@ -161,6 +180,7 @@ img {
     from {
       @apply h-0;
     }
+
     100% {
       @apply h-20;
     }
@@ -172,6 +192,7 @@ img {
     from {
       @apply h-0;
     }
+
     100% {
       @apply h-24;
     }
@@ -194,8 +215,8 @@ img {
   @apply flex flex-col space-y-4 p-5;
 }
 
-#footer hr {
-  @apply w-1/2 self-center;
+hr {
+  @apply w-1/2 self-center m-2;
 }
 
 #socialMedias {
@@ -220,14 +241,21 @@ img {
   @apply flex flex-row space-x-10 justify-center items-center;
 }
 
+#infosFooter h5:hover {
+  @apply underline cursor-pointer;
+}
+
 /* MAIN */
 
 #children {
   @apply pt-12 tab:pt-20 pc:pt-24;
 }
 
-#main div {
-  @apply p-2 tab:p-4 pc:p-8;
+#presentation,
+#realisationMain,
+#aboutMain,
+#skills {
+  @apply p-8
 }
 
 .reveal {
@@ -242,38 +270,84 @@ img {
   from {
     @apply opacity-0;
   }
+
   100% {
     @apply opacity-100;
   }
 }
 
-
 /* PRESENTATION */
 
-#presentation, #aboutMain {
-  background: linear-gradient(45deg, rgba(1,20,161,1) 8%, rgba(43,107,255,1) 66%);
+#presentation,
+#aboutMain,
+#descriptionAbout {
+  background: linear-gradient(45deg, rgba(1, 20, 161, 1) 8%, rgba(43, 107, 255, 1) 66%);
   @apply flex flex-col
 }
 
-#presentation h1 span{
+#presentation h1 span {
   @apply p-0 opacity-0;
 }
 
-.letter01 {animation: reveal 1.5s ease 200ms forwards}
-.letter02 {animation: reveal 1.5s ease 300ms forwards}
-.letter03 {animation: reveal 1.5s ease 400ms forwards}
-.letter04 {animation: reveal 1.5s ease 500ms forwards}
-.letter05 {animation: reveal 1.5s ease 600ms forwards}
-.letter06 {animation: reveal 1.5s ease 700ms forwards}
-.letter07 {animation: reveal 1.5s ease 800ms forwards}
-.letter08 {animation: reveal 1.5s ease 900ms forwards}
-.letter09 {animation: reveal 1.5s ease 1000ms forwards}
-.letter10 {animation: reveal 1.5s ease 1100ms forwards}
-.letter11 {animation: reveal 1.5s ease 1200ms forwards}
-.letter12 {animation: reveal 1.5s ease 1300ms forwards}
-.letter13 {animation: reveal 1.5s ease 1400ms forwards}
-.letter14 {animation: reveal 1.5s ease 1500ms forwards}
-.letter15 {animation: reveal 1.5s ease 1600ms forwards}
+.letter01 {
+  animation: reveal 1.5s ease 200ms forwards
+}
+
+.letter02 {
+  animation: reveal 1.5s ease 300ms forwards
+}
+
+.letter03 {
+  animation: reveal 1.5s ease 400ms forwards
+}
+
+.letter04 {
+  animation: reveal 1.5s ease 500ms forwards
+}
+
+.letter05 {
+  animation: reveal 1.5s ease 600ms forwards
+}
+
+.letter06 {
+  animation: reveal 1.5s ease 700ms forwards
+}
+
+.letter07 {
+  animation: reveal 1.5s ease 800ms forwards
+}
+
+.letter08 {
+  animation: reveal 1.5s ease 900ms forwards
+}
+
+.letter09 {
+  animation: reveal 1.5s ease 1000ms forwards
+}
+
+.letter10 {
+  animation: reveal 1.5s ease 1100ms forwards
+}
+
+.letter11 {
+  animation: reveal 1.5s ease 1200ms forwards
+}
+
+.letter12 {
+  animation: reveal 1.5s ease 1300ms forwards
+}
+
+.letter13 {
+  animation: reveal 1.5s ease 1400ms forwards
+}
+
+.letter14 {
+  animation: reveal 1.5s ease 1500ms forwards
+}
+
+.letter15 {
+  animation: reveal 1.5s ease 1600ms forwards
+}
 
 #presentation p {
   @apply tab:w-11/12 pc:w-2/3 self-center pc:self-end opacity-0;
@@ -288,6 +362,7 @@ img {
   from {
     @apply opacity-0;
   }
+
   100% {
     @apply opacity-100;
   }
@@ -303,6 +378,10 @@ img {
   @apply text-center;
 }
 
+#realisationMain #realisationMainTitle {
+  @apply pc:pb-16
+}
+
 #realisationMain button {
   @apply self-center;
 }
@@ -310,12 +389,78 @@ img {
 /* REALISATION SLIDER */
 
 #realisationSlider {
-  @apply h-96;
+  @apply flex flex-row h-96 w-[100%] pc:w-4/5 self-center content-center items-center justify-evenly mb-36;
+}
+
+#realisationSlider #slideCard {
+  @apply flex flex-col pt-16 w-[100%] self-center items-center;
+}
+
+#realisationSlider .realisationCard {
+  @apply w-[100%] pc:w-4/5;
 }
 
 #realisationSlider p {
   @apply text-center;
 }
+
+.sliderButton {
+  @apply absolute flex flex-col items-center z-50 w-16 tab:w-28 text-l tab:text-xl pc:text-xl text-whiteDefault bg-blue-500 rounded-full pc:text-black pc:bg-transparent hover:cursor-pointer;
+}
+
+.leftButton {
+  @apply rotate-180 left-[10%];
+}
+
+.rightButton {
+  @apply right-[10%];
+}
+
+.slideToRight {
+  animation: slideToRight 1s cubic-bezier(.8,-0.5,.01,1.07) forwards;
+}
+
+.slideToLeft {
+  animation: slideToLeft 1s cubic-bezier(.8,-0.5,.01,1.07) forwards;
+}
+
+@keyframes slideToRight {
+  0% {
+    transform: translateX(0px);
+  }
+
+  40% {
+    @apply translate-x-[30rem] opacity-0 pc:translate-x-[1500px] ;
+  }
+
+  40.01% {
+    transform: translateX(-30rem);
+  }
+
+  to {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes slideToLeft {
+  0% {
+    transform: translateX(0);
+  }
+
+  40% {
+    @apply -translate-x-[30rem] opacity-0 pc:translate-x-[1500px];
+  }
+
+  40.01% {
+    transform: translateX(30rem);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+
 
 /* ABOUT MAIN */
 
@@ -328,7 +473,7 @@ img {
 }
 
 #aboutMain p {
-  @apply w-2/3 text-whiteDefault;
+  @apply w-11/12 pc:w-2/3 text-whiteDefault;
 }
 
 /* SKILLS */
@@ -338,11 +483,11 @@ img {
 }
 
 #skillsList {
-  @apply w-[100%] flex flex-col tab:flex-row pc:flex-row items-center justify-center self-center;
+  @apply flex flex-col w-[100%] tab:flex-row pc:flex-row items-center justify-center self-center;
 }
 
 .skill {
-  @apply flex flex-col items-center content-center w-11/12 tab:w-1/5 pc:w-1/5;
+  @apply flex flex-col items-center content-center w-11/12 tab:w-1/5 pc:w-1/5 m-4 pc:m-8;
 }
 
 .skill img {
@@ -362,17 +507,16 @@ img {
   @apply text-[25px] m-0 opacity-0;
 }
 
-.typingReveal {
-  opacity: 75%;
+.skill .showSkill {
+  animation: showDiscover 0.4s forwards;
 }
 
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100;
-  }
+.skill .hideSkill {
+  animation: hideDiscover 0.4s forwards;
+}
+
+#skillDesc {
+  @apply mt-2;
 }
 
 /* PORTFOLIO */
@@ -389,12 +533,12 @@ img {
 
 /* REALISATION CARD */
 
-.realisationCard {
-  @apply shadow-lg rounded-2xl m-[5%] w-11/12 tab:w-[100%] pc:w-2/5 ;
+#realisationList .realisationCard {
+  @apply shadow-lg rounded-2xl m-[5%] w-11/12 tab:w-[100%] pc:w-2/5;
 }
 
-.realisationCard:hover{
- @apply cursor-pointer;
+.realisationCard:hover {
+  @apply cursor-pointer;
 }
 
 .realisationCard .cardTitle {
@@ -430,18 +574,130 @@ img {
 
 @keyframes showDiscover {
   from {
-    opacity: 0;
+    @apply opacity-0;
   }
+
   100% {
-    opacity: 100%;
+    @apply opacity-[100%];
   }
 }
 
 @keyframes hideDiscover {
   from {
-    opacity: 100%;
+    @apply opacity-[100%];
   }
+
   100% {
-    opacity: 0;
+    @apply opacity-0;
   }
+}
+
+/* ABOUT */
+
+#about {
+  @apply flex flex-col items-center pb-20;
+}
+
+#descriptionAbout {
+  @apply flex flex-col items-center
+}
+
+#descriptionAbout * {
+  @apply text-white;
+}
+
+#descriptionAbout p {
+  @apply w-[90%] pc:w-2/3 text-center;
+}
+
+#infoContact p {
+  @apply text-s p-0
+}
+
+/* CONTACT */
+
+#contact {
+  @apply flex flex-col w-11/12 pc:w-2/3;
+}
+
+#nameContact {
+  @apply flex flex-col pc:flex-row pc:justify-evenly;
+}
+
+.required {
+  box-shadow: rgb(253, 106, 106);
+  border: 2px solid rgb(253, 106, 106)red;
+}
+
+.required::placeholder {
+  @apply text-red-400;
+}
+
+/* POPUP */
+
+#popupBackground {
+  @apply fixed w-[100%] h-[100%] flex flex-col items-center justify-center bg-opacity-70 bg-gray-100;
+  transition-duration: 300ms;
+  z-index: 998;
+}
+
+#popupBody {
+  @apply flex flex-col p-8 items-center justify-center fixed max-w-[90%] max-h-[80%] bg-blueDefault rounded-lg;
+  z-index: 1000;
+}
+
+.popupClosed {
+  @apply w-0 opacity-0;
+  transition-duration: 300ms;
+}
+
+.popupOpened {
+  @apply w-[100%] pc:w-10/12 opacity-100;
+  transition-duration: 300ms;
+}
+
+#popupContainer {
+  @apply w-[100%] h-[100%] overflow-y-auto;
+}
+
+#popupBody h2,
+#popupBody p,
+#popupBody h3 {
+  @apply text-whiteDefault;
+}
+
+#popupBody button {
+  @apply hover:border-whiteDefault;
+}
+
+/* REALISATION POPUP */
+
+.realisationPopup {
+  @apply flex flex-col;
+}
+.realisationPopup * {
+  @apply mb-2 pc:mb-6
+}
+
+.realisationPopup div {
+  @apply flex flex-col pc:flex-row
+}
+
+.realisationPopup p {
+  @apply pc:w-1/2
+}
+
+.realisationPopup img {
+  @apply pc:float-right
+}
+
+.realisationPopup a {
+  @apply text-whiteDefault self-center
+}
+
+/* ADMIN */
+
+#auth,
+#admin {
+  @apply flex flex-col w-2/3 self-center;
 }

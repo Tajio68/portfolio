@@ -1,8 +1,10 @@
 import githubIcon from "./../assets/img/githubIcon.png";
 import linkedinIcon from "./../assets/img/linkedinIcon.png";
+
+import { usePopupContext } from "../context/PopupContext";
  
 const Footer: React.FunctionComponent = () => {
-
+    const showPopup = usePopupContext();
     return (
         <div id="footer" className="selectionToBlue">
             <hr />
@@ -15,7 +17,7 @@ const Footer: React.FunctionComponent = () => {
             </div>
             <hr />
             <div id="infosFooter">
-                <h5>Mentions légales</h5>
+                <h5 onClick={() => showPopup?.show(2)}>Mentions légales</h5>
                 <h5>Création par Timéo Godin | 2023</h5>
             </div>
         </div>

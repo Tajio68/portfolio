@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { usePopupContext } from "../context/PopupContext";
 
 interface RealisationCardProps {
     realisation: Realisation;
@@ -7,29 +8,19 @@ interface RealisationCardProps {
 const RealisationCard: React.FunctionComponent<RealisationCardProps> = ({ realisation }) => {
 
     const [hovered, setHovered] = useState(false);
+    const showPopup = usePopupContext();
 
-    const handleHover = () => {
-        console.log('hover')
-        setHovered(true);
-    }
-
-    const handleUnhover = () => {
-        console.log('unhover')
-        setHovered(false);
-    }
-
-    const hoverTrigger:string = hovered ? 'showCardDiscover' : '';
-    const unhoverTrigger:string = hovered ? '' : 'hideCardDiscover';
+    const hoverTrigger:string = hovered ? 'showCardDiscover' : 'hideCardDiscover';
 
     return (
-        <div className="realisationCard reveal" onMouseEnter={handleHover} onMouseLeave={handleUnhover}>
+        <div className="realisationCard reveal" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} onClick={() => showPopup?.show(3, realisation)}>
             <div className="cardTitle">
                 <h2>{realisation.title}</h2>
             </div>
             <div className="cardImage">
                 <img src={realisation.img} />
             </div>
-            <div className={'cardDiscover' + ' ' + hoverTrigger + ' ' + unhoverTrigger}>
+            <div className={'cardDiscover' + ' ' + hoverTrigger}>
                 <h2>Découvrir</h2>
             </div>
         </div>

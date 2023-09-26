@@ -1,23 +1,41 @@
 
 import Header from './components/Header';
-import { ReactNode, useEffect } from 'react';
+import { ReactNode, useState } from 'react';
 import Footer from './components/Footer';
+import Popup from './components/popup/Popup';
+import { PopupContextProvider } from './context/PopupContext';
 
 interface AppProps {
   children: ReactNode
 }
- 
+
 const App: React.FunctionComponent<AppProps> = ({ children }) => {
 
-  return ( 
+  const [infoPopup, setinfoPopup] = useState(0);
+  const [triggerPopup, setTriggerPopup] = useState(false);
+  const [real, setReal] = useState<Realisation>();
+
+  const unshowPopup = () => {
+    const element = document.getElementById("popupBody");
+    element?.classList.remove("popupOpened");
+    setTimeout(() => {
+      setTriggerPopup(false);
+    }, 300);
+    
+  }
+
+  return (
     <div id='app'>
-      <Header />
-      <div id='children'>
-        {children}
-      </div>
-      <Footer />
+      <PopupContextProvider setData={setinfoPopup} setShow={setTriggerPopup} setReal={setReal}>
+        {triggerPopup && <Popup info={infoPopup} unshow={unshowPopup} realisation={real}/>}
+        <Header />
+        <div id='children'>
+          {children}
+        </div>
+        <Footer />
+      </PopupContextProvider>
     </div>
   );
 }
- 
+
 export default App;

@@ -15,3 +15,28 @@ declare type Realisation = {
     id: string;
     title: string;
 };
+
+declare type Infos = {
+    desc: string;
+    mail: string;
+    phoneNumber: string;
+}
+
+declare type Message = {
+    title: string;
+    text: string;
+    name: string;
+    surname: string;
+    mail: string;
+    phoneNumber?: string;
+    id: string;
+}
+
+declare type popupContextType = {
+    show: (infoChoice: number, real?: Realisation) => void;
+}
+
+declare type SkillType = {
+    img: string;
+    name: string;
+}
