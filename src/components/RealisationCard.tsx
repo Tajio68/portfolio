@@ -10,7 +10,7 @@ const RealisationCard: React.FunctionComponent<RealisationCardProps> = ({ realis
     const [hovered, setHovered] = useState(false);
     const showPopup = usePopupContext();
 
-    const hoverTrigger:string = hovered ? 'showCardDiscover' : 'hideCardDiscover';
+    const hoverTrigger:string = window.matchMedia("(max-width: 1024px)").matches ? 'showCardDiscover' : hovered ? 'showCardDiscover' : 'hideCardDiscover';
 
     return (
         <div className="realisationCard reveal" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} onClick={() => showPopup?.show(3, realisation)}>

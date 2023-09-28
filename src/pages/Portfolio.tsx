@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import RealisationList from "../components/RealisationList";
-import imgIcon from "./../assets/img/cssIcon.png"
 import { observer } from "../features/IntersectionObserver/intersectionObserver";
+import { useRealStore } from "../data/zustand/store";
 
 interface PortfolioProps {
     
@@ -9,17 +9,20 @@ interface PortfolioProps {
  
 const Portfolio: React.FunctionComponent<PortfolioProps> = () => {
 
+    const {reals} = useRealStore();
+
     useEffect(() => {
       document.querySelectorAll('.reveal').forEach((r) => {
         observer.observe(r);
       });
-      
     }, []);
+
+    window.scrollTo(0, 0);
 
     return (
         <div id="portfolio">
             <h1>Mes réalisations</h1>
-            <RealisationList reals={[{desc:'zae', img: imgIcon, date: '11/09/2001', link: 'azeaz', id:'1654', title: '54654'}, {desc:'zae', img: imgIcon, date: '11/09/2001', link: 'azeaz', id:'1654', title: '54654'}, {desc:'zae', img: imgIcon, date: '11/09/2001', link: 'azeaz', id:'1654', title: '54654'}, {desc:'zae', img: imgIcon, date: '11/09/2001', link: 'azeaz', id:'1654', title: '54654'}]}/>
+            <RealisationList reals={reals}/>
         </div>
     );
 }

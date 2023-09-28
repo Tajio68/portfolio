@@ -30,7 +30,6 @@ const Popup: React.FunctionComponent<PopupProps> = ({ info, unshow, realisation 
     setTimeout(() => {
         const element = document.getElementById("popupBody");
         element?.classList.add("popupOpened");
-        console.log("TEST")
     }, 100);
     
     return (

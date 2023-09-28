@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { observer } from "../features/IntersectionObserver/intersectionObserver";
 import { handleInputs } from "../features/handleInputs";
 import { usePopupContext } from "../context/PopupContext";
+import { useInfoStore, useMsgStore } from "../data/zustand/store";
 
 interface AboutProps {
 
@@ -11,6 +12,9 @@ const About: React.FunctionComponent<AboutProps> = () => {
 
     const [sendMsg, setSendMsg] = useState(false);
     const [placeholder, setPlaceholder] = useState("Adresse Mail");
+
+    const { infos } = useInfoStore();
+    const { messages, addMessage } = useMsgStore();
 
     const showPopup = usePopupContext();
 
@@ -28,7 +32,7 @@ const About: React.FunctionComponent<AboutProps> = () => {
         mail: '',
         phoneNumber: '',
         id: ''
-    })
+    });
 
     const postMsg = (msg: Message) => {
         if (msg.mail.length === 0) {
@@ -39,15 +43,18 @@ const About: React.FunctionComponent<AboutProps> = () => {
             document.getElementById("mailInput")?.classList.remove("required");
             setSendMsg(true);
             showPopup?.show(4);
+            addMessage(msg);
         }
     }
+
+    window.scrollTo(0, 0);
 
     return (
         <div id="about">
             <div id="descriptionAbout" className="reveal">
                 <h1>À propos</h1>
                 <img src="" id="photoAbout" />
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores, expedita odio blanditiis, maxime dignissimos cumque iusto, non quod magnam beatae officia perspiciatis tenetur? Repellendus enim consequatur error laudantium aliquid veritatis consequuntur quia iusto rerum dolorem culpa ab odio esse cumque molestiae nulla veniam consectetur maxime sed, necessitatibus, voluptates inventore magnam!</p>
+                <p>{infos.desc}</p>
             </div>
             <div id="contact" className="reveal">
                 <h2 className="titleCenter">Pour me contacter</h2>
@@ -63,8 +70,8 @@ const About: React.FunctionComponent<AboutProps> = () => {
             </div>
             <div id="infoContact">
                 <h2>Infos de contact : </h2>
-                <p>Adresse mail : timeo.godin@gmail.com</p>
-                <p>Téléphone: +33650255325</p>
+                <p>Adresse mail : {infos.mail}</p>
+                <p>Téléphone: {infos.phoneNumber}</p>
             </div>
         </div>
     );

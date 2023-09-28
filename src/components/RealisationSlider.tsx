@@ -1,5 +1,6 @@
 import { useState } from "react";
 import RealisationCard from "./RealisationCard";
+import { useRealStore } from "../data/zustand/store";
 
 interface RealisationSliderProps {
     realisations: Realisation[];
@@ -18,17 +19,18 @@ const RealisationSlider: React.FunctionComponent<RealisationSliderProps> = ({ re
         setTimeout(() => {
             button === 0 ? element?.classList.remove('slideToLeft') : element?.classList.remove('slideToRight');
         }, 1000);
+        
     }
 
     const noDisplay = <><p className="titleCenter">Pas de projets pour l'instant, proposez moi-en !</p></>;
 
     const display =
         <>
-            <button type="button" className="sliderButton leftButton" onClick={() => buttonClick(0)}>&#10132;</button>
+            <button type="button" className="sliderButton leftButton" onClick={() => buttonClick(0)}><p>&#10132;</p></button>
             <div id="slideCard" className=" ">
                 {<RealisationCard realisation={realisations[index]}></RealisationCard>}
             </div>
-            <button type="button" className="sliderButton rightButton" onClick={() => buttonClick(1)}>&#10132;</button>
+            <button type="button" className="sliderButton rightButton" onClick={() => buttonClick(1)}><p>&#10132;</p></button>
         </>
 
     return (

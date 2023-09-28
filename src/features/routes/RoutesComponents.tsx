@@ -5,14 +5,20 @@ import About from "../../pages/About";
 import Admin from "../../pages/Admin";
 import App from "../../App";
 import Authenticate from "../authentification/Authenticate";
+import Infos from "../../components/admin/Infos";
+import Messages from "../../components/admin/Messages";
 
-interface RoutesComponentsProps {
+const RoutesComponents: React.FunctionComponent = () => {
 
-}
+    const AuthentificationRoute: React.FunctionComponent = () => {
+        return (
+                <Routes>
+                    
+                    
+                </Routes>
 
-
-
-const RoutesComponents: React.FunctionComponent<RoutesComponentsProps> = () => {
+        );
+    }
 
     return (
         <BrowserRouter>
@@ -21,7 +27,9 @@ const RoutesComponents: React.FunctionComponent<RoutesComponentsProps> = () => {
                     <Route path='/*' element={<Main />} />
                     <Route path='/portfolio' element={<Portfolio />} />
                     <Route path='/about' element={<About />} />
-                    <Route path='/manager' element={<Authenticate><Admin /></Authenticate>} />
+                    <Route path="/manager" element={<Admin />} />
+                    <Route path="/manager/infos" element={<Infos />} />
+                    <Route path="/manager/messages" element={<Messages />} />
                 </Routes>
             </App>
         </BrowserRouter>

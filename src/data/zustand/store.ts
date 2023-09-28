@@ -4,53 +4,79 @@ import { create } from "zustand";
 
 interface RealisationState {
     reals: Realisation[];
-    addReal: (desc: string, img: string, date: string, link: string, id: string, title: string) => void;
-    updateReal: (desc: string, img: string, date: string, link: string, id: string, title: string) => void;
-    removeReal: (id: string) => void;
-}
-
-const updatedReal = {
-    desc: "",
-    img: "",
-    date: "",
-    link: "",
-    title: ""
+    selectedReals: Realisation[];
 }
 
 export const useRealStore = create<RealisationState>((set) => ({
-    reals: [],
+    reals: [
+        {
+            desc:'zae', 
+            img: 'imgIcon', 
+            date: '11/09/2001', 
+            link: 'azeaz', 
+            id:'1654', 
+            title: '54654'
+        }, 
+        {
+            desc:'zae', 
+            img: 'imgIcon', 
+            date: '11/09/2001', 
+            link: 'azeaz', 
+            id:'1654', 
+            title: '54654'}, 
+        {
+            desc:'zae', 
+            img: 'imgIcon', 
+            date: '11/09/2001', 
+            link: 'azeaz', 
+            id:'1654', 
+            title: '54654'
+        }, 
+        {
+            desc:'zae',
+            img: 'imgIcon', 
+            date: '11/09/2001', 
+            link: 'azeaz', 
+            id:'1654', 
+            title: '54654'
+        }
+    ],
 
-    addReal: (desc: string, img: string, date: string, link: string, id: string, title: string) => {
-        set((state) => ({
-            reals: [
-                ...state.reals,
-                {
-                    desc: desc,
-                    img: img,
-                    date: date,
-                    link: link,
-                    id: id,
-                    title: title
-                }
-            ]
-        }));
-    },
+    selectedReals: [
+        {
+            desc:'zae',
+            img: 'imgIcon', 
+            date: '11/09/2001', 
+            link: 'azeaz', 
+            id:'1654', 
+            title: 'no1'
+        },
+        {
+            desc:'zae',
+            img: 'imgIcon', 
+            date: '11/09/2001', 
+            link: 'azeaz', 
+            id:'1654', 
+            title: 'no2'
+        },
+        {
+            desc:'zae',
+            img: 'imgIcon', 
+            date: '11/09/2001', 
+            link: 'azeaz', 
+            id:'1654', 
+            title: 'no3'
+        },
+        {
+            desc:'zae',
+            img: 'imgIcon', 
+            date: '11/09/2001', 
+            link: 'azeaz', 
+            id:'1654', 
+            title: 'no4'
+        }
+    ],
 
-    updateReal: (desc, img, date, link, id, title) => {
-        set((state) => ({
-            reals: state.reals.map((real) =>
-                real.id === id ? {
-                    ...real, updatedReal
-                } : real
-            ),
-        }));
-    },
-
-    removeReal: (id) => {
-        set((state) => ({
-            reals: state.reals.filter((real) => real.id !== id)
-        }));
-    }
 }));
 
 // INFOS
@@ -62,9 +88,9 @@ type InfosState = {
 
 export const useInfoStore = create<InfosState>((set) => ({
     infos: {
-        desc: "",
-        mail: "",
-        phoneNumber: ""
+        desc: "Ceci est un texte test",
+        mail: "timeo.godin@gmail.com",
+        phoneNumber: "+33650255325"
     },
 
     updateInfo: (data) => {
@@ -82,26 +108,28 @@ export const useInfoStore = create<InfosState>((set) => ({
 
 type MessageState = {
     messages: Message[];
-    addMessage: (title: string, text: string, name: string, surname: string, mail: string, id: string, phoneNumber?: string) => void;
+    addMessage: (message: Message) => void;
     removeMessage: (id: string) => void;
 }
 
 export const useMsgStore = create<MessageState>((set) => ({
-    messages: [],
+    messages: [
+        {
+            title: 'Test', 
+            text: "TEST TEXTE", 
+            name: 'GODIN', 
+            surname: 'Timéo', 
+            mail: 'tgodin@gmail.com',
+            phoneNumber: "0641616",
+            id: "zdazd"
+        }
+    ],
 
-    addMessage: (title, text, name, surname, mail, id, phoneNumber) => {
+    addMessage: (message) => {
         set((state) => ({
             messages: [
                 ...state.messages,
-                {
-                    title: title,
-                    text: text,
-                    name: name,
-                    surname: surname,
-                    mail: mail,
-                    id: id,
-                    phoneNumber: phoneNumber
-                }
+                message as Message
             ]
         }));
     },

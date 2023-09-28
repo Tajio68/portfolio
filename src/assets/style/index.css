@@ -405,11 +405,19 @@ hr {
 }
 
 .sliderButton {
-  @apply absolute flex flex-col items-center z-50 w-16 tab:w-28 text-l tab:text-xl pc:text-xl text-whiteDefault bg-blue-500 rounded-full pc:text-black pc:bg-transparent hover:cursor-pointer;
+  @apply absolute flex flex-col justify-center items-center z-50 w-16 h-16 tab:w-28 tab:h-28 text-l tab:text-xl pc:text-xl text-whiteDefault bg-blue-500 rounded-full pc:text-black pc:bg-transparent hover:cursor-pointer;
+}
+
+.sliderButton p {
+  @apply p-0 m-0 text-l text-center self-center
 }
 
 .leftButton {
-  @apply rotate-180 left-[10%];
+  @apply left-[10%];
+}
+
+.leftButton p {
+  @apply rotate-180;
 }
 
 .rightButton {
@@ -555,7 +563,7 @@ hr {
 }
 
 .realisationCard .cardDiscover {
-  @apply bg-blueDefault opacity-0;
+  @apply bg-blueDefault pc:opacity-0;
   border-radius: 0 0 16px 16px;
   transition-duration: 300ms;
 }
@@ -599,7 +607,7 @@ hr {
 }
 
 #descriptionAbout {
-  @apply flex flex-col items-center
+  @apply flex flex-col items-center w-[100%];
 }
 
 #descriptionAbout * {
@@ -676,28 +684,70 @@ hr {
   @apply flex flex-col;
 }
 .realisationPopup * {
-  @apply mb-2 pc:mb-6
+  @apply mb-2 pc:mb-6;
 }
 
 .realisationPopup div {
-  @apply flex flex-col pc:flex-row
+  @apply flex flex-col pc:flex-row;
 }
 
 .realisationPopup p {
-  @apply pc:w-1/2
+  @apply pc:w-1/2;
 }
 
 .realisationPopup img {
-  @apply pc:float-right
+  @apply pc:float-right;
 }
 
 .realisationPopup a {
-  @apply text-whiteDefault self-center
+  @apply text-whiteDefault self-center;
 }
 
 /* ADMIN */
 
 #auth,
-#admin {
-  @apply flex flex-col w-2/3 self-center;
+#admin, #infos, #messages {
+  @apply flex flex-col items-center;
+}
+
+#infos input, #infos textarea {
+  @apply w-11/12;
+}
+
+/* GO TO TOP BUTTON */
+
+#goToTop {
+  @apply fixed flex flex-row items-center justify-center m-2 rounded-full bottom-4 right-4 w-20 h-20 -rotate-90 bg-whiteDefault translate-y-36 hover:cursor-pointer;
+  z-index: 1000;
+  box-shadow: -20px 0 70px rgba(0, 0, 0, 0.3);
+}
+
+#goToTop p {
+  @apply text-blueDefault -rotate-90 text-l text-center p-0;
+}
+
+.showToTop {
+  animation: showTop 200ms linear forwards;
+}
+
+.hideTop {
+  animation: hideTop 200ms linear forwards;
+}
+
+@keyframes showTop {
+  from {
+    transform: translateY(144px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes hideTop {
+  from {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(144px);
+  }
 }
