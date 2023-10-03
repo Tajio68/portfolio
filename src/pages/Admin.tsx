@@ -1,10 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-interface AdminProps {
-    
-}
- 
-const Admin: React.FunctionComponent<AdminProps> = () => {
+const Admin: React.FunctionComponent = () => {
 
     const navigate = useNavigate();
     window.scrollTo(0, 0);

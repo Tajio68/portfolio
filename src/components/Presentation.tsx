@@ -1,6 +1,4 @@
-
 const Presentation: React.FunctionComponent = () => {
-
     return (
         <div id="presentation" className="selectionToWhite">
             <h1>

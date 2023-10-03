@@ -1,4 +1,3 @@
-
 import RealisationCard from "./RealisationCard";
 
 interface RealisationListProps {
@@ -6,7 +5,6 @@ interface RealisationListProps {
 }
  
 const RealisationList: React.FunctionComponent<RealisationListProps> = ({ reals }) => {
-
     return (
         <div id="realisationList">
             {

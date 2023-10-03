@@ -4,11 +4,7 @@ import { handleInputs } from "../features/handleInputs";
 import { usePopupContext } from "../context/PopupContext";
 import { useInfoStore, useMsgStore } from "../data/zustand/store";
 
-interface AboutProps {
-
-}
-
-const About: React.FunctionComponent<AboutProps> = () => {
+const About: React.FunctionComponent = () => {
 
     const [sendMsg, setSendMsg] = useState(false);
     const [placeholder, setPlaceholder] = useState("Adresse Mail");

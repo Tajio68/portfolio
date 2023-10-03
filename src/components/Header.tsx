@@ -13,7 +13,7 @@ const Header: React.FunctionComponent = () => {
             if (window.scrollY > 50) {
                 element.classList.add('hiddenHeader');
                 element.classList.remove('showHeader');
-                element.classList.replace('showHeader', 'hiddenHeader')
+                element.classList.replace('showHeader', 'hiddenHeader');
                 element = document.getElementById("goToTop");
                 element?.classList.remove("hideTop");
                 element?.classList.add('showToTop');
@@ -22,7 +22,7 @@ const Header: React.FunctionComponent = () => {
                 element.classList.remove('hiddenHeader');
                 element = document.getElementById("goToTop");
                 element?.classList.remove('showToTop');
-                element?.classList.add('hideTop')
+                element?.classList.add('hideTop');
             }  
         }   
       }

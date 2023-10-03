@@ -2,8 +2,6 @@ import { useEffect } from "react";
 import { useMsgStore } from "../../data/zustand/store";
 import BackButton from "./BackButton";
 
- 
-
 const Messages: React.FunctionComponent = () => {
 
     const { messages, removeMessage } = useMsgStore();

@@ -1,10 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-interface AboutMainProps {
-    
-}
- 
-const AboutMain: React.FunctionComponent<AboutMainProps> = () => {
+const AboutMain: React.FunctionComponent = () => {
 
     const navigate = useNavigate();
 
