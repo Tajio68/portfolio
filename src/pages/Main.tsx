@@ -4,12 +4,8 @@ import Presentation from "../components/Presentation";
 import RealisationMain from "../components/RealisationMain";
 import Skills from "../components/Skills";
 import { observer } from "../features/IntersectionObserver/intersectionObserver";
-
-interface MainProps {
-    
-}
  
-const Main: React.FunctionComponent<MainProps> = () => {
+const Main: React.FunctionComponent = () => {
 
     useEffect(() => {
       document.querySelectorAll('.reveal').forEach((r) => {

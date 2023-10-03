@@ -14,7 +14,7 @@ const About: React.FunctionComponent<AboutProps> = () => {
     const [placeholder, setPlaceholder] = useState("Adresse Mail");
 
     const { infos } = useInfoStore();
-    const { messages, addMessage } = useMsgStore();
+    const { addMessage } = useMsgStore();
 
     const showPopup = usePopupContext();
 
@@ -47,8 +47,6 @@ const About: React.FunctionComponent<AboutProps> = () => {
         }
     }
 
-    window.scrollTo(0, 0);
-
     return (
         <div id="about">
             <div id="descriptionAbout" className="reveal">
@@ -64,7 +62,7 @@ const About: React.FunctionComponent<AboutProps> = () => {
                 </div>
                 <input placeholder="Objet" onChange={(e) => handleInputs(e, setMsg, msg)} name="title" />
                 <textarea placeholder="Décrivez votre projet ici" onChange={(e) => handleInputs(e, setMsg, msg)} name="text" />
-                <input placeholder={placeholder} onChange={(e) => handleInputs(e, setMsg, msg)} name="mail" id="mailInput" className=""/>
+                <input placeholder={placeholder} onChange={(e) => handleInputs(e, setMsg, msg)} name="mail" id="mailInput" className="" />
                 <input placeholder="Numéro de téléphone" onChange={(e) => handleInputs(e, setMsg, msg)} name="phoneNumber" />
                 <button className="blueButton" onClick={() => postMsg(msg)}>{sendMsg ? "Message envoyé" : "Envoyer"}</button>
             </div>
