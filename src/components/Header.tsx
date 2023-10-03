@@ -44,9 +44,6 @@ const Header: React.FunctionComponent = () => {
                 <a onClick={() => navigate('/portfolio')}>Portfolio</a>
                 <a onClick={() => navigate('/about')}>À propos</a>
             </div>
-            <div id="darkModeDiv">
-                <img src={darkModeImg} onClick={() => darkModeTrigger()}></img>
-            </div>
         </div>
     );
 }

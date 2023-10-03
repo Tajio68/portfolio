@@ -7,11 +7,9 @@ const RealisationPopup: React.FunctionComponent<RealisationProps> = ({ realisati
         return (
             <div className="realisationPopup">
                 <h2 className="titleCenter">{realisation.title}</h2>
-                <div>
-                    <p>{realisation.desc}</p>
-                    <img src={realisation.img} />
-                </div>
-                <h3>Mis à jour le {realisation.date}</h3>
+                <p>{realisation.desc}</p>
+                <img src={realisation.img} />
+                <h3>Dernière mise à jour : {realisation.date}</h3>
                 <a href={realisation.link}>Voir le site</a>
             </div>
         );

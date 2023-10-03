@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { createMessage, deleteMessage, writeInfos } from "../firebase/handleData";
+import portfolioImg from './../../assets/img/portfolioReal.png';
 
 // REALISATIONS
 
@@ -11,72 +12,24 @@ interface RealisationState {
 export const useRealStore = create<RealisationState>(() => ({
     reals: [
         {
-            desc:'zae', 
-            img: 'imgIcon', 
-            date: '11/09/2001', 
+            desc:"Site personnel me permettant de montrer mes créations et de présenter mon activité", 
+            img: portfolioImg, 
+            date: 'Octobre 2023', 
             link: 'azeaz', 
-            id:'1654', 
-            title: '54654'
+            id:'port-09-2023', 
+            title: 'Portfolio en ligne'
         }, 
-        {
-            desc:'zae', 
-            img: 'imgIcon', 
-            date: '11/09/2001', 
-            link: 'azeaz', 
-            id:'1654', 
-            title: '54654'
-        }, 
-        {
-            desc:'zae', 
-            img: 'imgIcon', 
-            date: '11/09/2001', 
-            link: 'azeaz', 
-            id:'1654', 
-            title: '54654'
-        }, 
-        {
-            desc:'zae',
-            img: 'imgIcon', 
-            date: '11/09/2001', 
-            link: 'azeaz', 
-            id:'1654', 
-            title: '54654'
-        }
     ],
 
     selectedReals: [
         {
-            desc:'zae',
-            img: 'imgIcon', 
-            date: '11/09/2001', 
+            desc:"Site personnel me permettant de montrer mes créations et de présenter mon activité", 
+            img: portfolioImg, 
+            date: 'Octobre 2023', 
             link: 'azeaz', 
-            id:'1654', 
-            title: 'no1'
+            id:'port-09-2023', 
+            title: 'Portfolio en ligne'
         },
-        {
-            desc:'zae',
-            img: 'imgIcon', 
-            date: '11/09/2001', 
-            link: 'azeaz', 
-            id:'1654', 
-            title: 'no2'
-        },
-        {
-            desc:'zae',
-            img: 'imgIcon', 
-            date: '11/09/2001', 
-            link: 'azeaz', 
-            id:'1654', 
-            title: 'no3'
-        },
-        {
-            desc:'zae',
-            img: 'imgIcon', 
-            date: '11/09/2001', 
-            link: 'azeaz', 
-            id:'1654', 
-            title: 'no4'
-        }
     ],
 
 }));

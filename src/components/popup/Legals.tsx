@@ -17,8 +17,7 @@ const Legals: React.FunctionComponent<LegalsProps> = () => {
                 Ces dernières sont accessibles sur le Site à la rubrique « Mentions légales »
             </p>
             <h2>ARTICLE 1 - L'EDITEUR</h2>
-            <p>L’édition et la direction de la publication du Site est assurée par Timéo GODIN, domiciliée 59 Grand
-                Rue Meyenheim, dont le numéro de téléphone est 33650255325, et l'adresse e-mail
+            <p>L’édition et la direction de la publication du Site est assurée par Timéo GODIN, dont le numéro de téléphone est +33650255325, et l'adresse e-mail
                 timeo.godin@gmail.com.</p>
             <h2>ARTICLE 2 - L'HEBERGEUR</h2>
             <p>L'hébergeur du Site est la société Timéo GODIN, dont le siège social est situé au 59 Grand Rue
