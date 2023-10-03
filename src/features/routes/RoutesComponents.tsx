@@ -7,19 +7,9 @@ import App from "../../App";
 import Authenticate from "../authentification/Authenticate";
 import Infos from "../../components/admin/Infos";
 import Messages from "../../components/admin/Messages";
+import Login from "../authentification/Login";
 
 const RoutesComponents: React.FunctionComponent = () => {
-
-    const AuthentificationRoute: React.FunctionComponent = () => {
-        return (
-                <Routes>
-                    
-                    
-                </Routes>
-
-        );
-    }
-
     return (
         <BrowserRouter>
             <App>
@@ -27,9 +17,10 @@ const RoutesComponents: React.FunctionComponent = () => {
                     <Route path='/*' element={<Main />} />
                     <Route path='/portfolio' element={<Portfolio />} />
                     <Route path='/about' element={<About />} />
-                    <Route path="/manager" element={<Admin />} />
-                    <Route path="/manager/infos" element={<Infos />} />
-                    <Route path="/manager/messages" element={<Messages />} />
+                    <Route path="/login" element={<Login />}/>
+                    <Route path="/manager" element={<Authenticate><Admin /></Authenticate>} />
+                    <Route path="/manager/infos" element={<Authenticate><Infos /></Authenticate>} />
+                    <Route path="/manager/messages" element={<Authenticate><Messages /></Authenticate>} />
                 </Routes>
             </App>
         </BrowserRouter>
